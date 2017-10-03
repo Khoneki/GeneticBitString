@@ -1,6 +1,8 @@
 package genetic
 
-import "math/rand"
+import (
+	"math/rand"
+)
 
 type gene struct {
 	bit [8]int
