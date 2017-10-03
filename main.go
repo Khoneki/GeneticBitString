@@ -13,7 +13,7 @@ func main() {
 	for i := 0; parent.Avgfit < 8; i++ {
 		parent.Choice()
 		fmt.Print(i, " ", parent.GetBest()[0], " ", parent.Avgfit, "\n")
-		if parent.Avgfit >= 7.9 {
+		if parent.Avgfit >= 7.999 {
 			break
 		}
 		son = parent.Crossover()
