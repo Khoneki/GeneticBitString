@@ -9,7 +9,7 @@ type generation struct {
 	avgfit float64
 }
 
-func newGeneration(goal [8]int) *generation {
+func NewGeneration(goal [8]int) *generation {
 	p := generation{}
 	var inv [8]int
 	for i := 0; i < len(goal); i++ {
