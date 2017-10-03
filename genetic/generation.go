@@ -3,9 +3,10 @@ package genetic
 import "math/rand"
 
 type generation struct {
-	genes [1000]*gene
-	best  [4]*gene
-	goal  [8]int
+	genes  [1000]*gene
+	best   [4]*gene
+	goal   [8]int
+	avgfit float64
 }
 
 func newGeneration(goal [8]int) *generation {
@@ -38,6 +39,10 @@ func (p *generation) choice() {
 			}
 		}
 	}
+	for i := 0; i < len(p.best); i++ {
+		p.avgfit += float64(p.best[i].getFitness(p.goal))
+	}
+	p.avgfit /= 4
 }
 
 func (p generation) crossover() *generation {
