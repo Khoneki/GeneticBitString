@@ -36,10 +36,10 @@ func (p *generation) Choice() {
 		}
 	}
 	p.Avgfit = 0
-	for i := 0; i < len(p.best); i++ {
-		p.Avgfit += float64(p.best[i].getFitness(p.goal))
+	for i := 0; i < len(p.genes); i++ {
+		p.Avgfit += float64(p.genes[i].getFitness(p.goal))
 	}
-	p.Avgfit /= 4
+	p.Avgfit /= 1000
 }
 
 func (p generation) Crossover() *generation {
