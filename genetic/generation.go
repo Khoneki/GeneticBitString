@@ -18,7 +18,12 @@ func NewGeneration(goal [8]int) *generation {
 		p.best[i] = newGene()
 	}
 	p.goal = goal
+	p.Avgfit = 0
 	return &p
+}
+
+func (p generation) GetBest() [4]*gene {
+	return p.best
 }
 
 func (p *generation) Choice() {
@@ -30,6 +35,7 @@ func (p *generation) Choice() {
 			}
 		}
 	}
+	p.Avgfit = 0
 	for i := 0; i < len(p.best); i++ {
 		p.Avgfit += float64(p.best[i].getFitness(p.goal))
 	}
